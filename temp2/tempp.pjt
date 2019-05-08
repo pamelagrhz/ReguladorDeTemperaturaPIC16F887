@@ -1,0 +1,24 @@
+[PROJECT]
+Target=C:\Users\ALANN\Desktop\Regulador de temp\temp2\tempp.hex
+Development_Mode=
+Processor_Text=PIC16F877
+ToolSuite=CCS
+Processor=0x877F
+[C:\Users\ALANN\Desktop\Regulador de temp\temp2\tempp]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=C:\Users\ALANN\Desktop\Regulador de temp\temp2\tempp.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Units]
+Link=0
+Count=1
+1=C:\Users\ALANN\Desktop\Regulador de temp\temp2\tempp
+[Opened Files]
+1=tempp.c
+2=

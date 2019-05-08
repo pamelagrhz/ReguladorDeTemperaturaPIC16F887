@@ -1,0 +1,125 @@
+CCS PCM C Compiler, Version 4.104, 5967               19-may.-17 23:23
+
+               Filename: C:\Users\ALANN\Desktop\Regulador de temp\temp2\tempp.lst
+
+               ROM used: 73 words (1%)
+                         Largest free fragment is 2048
+               RAM used: 6 (2%) at main() level
+                         6 (2%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include "C:\Users\ALANN\Desktop\Regulador de temp\temp2\tempp.h" 
+.................... #include <16F877.h> 
+.................... //////// Standard Header file for the PIC16F877 device //////////////// 
+.................... #device PIC16F877 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES HS                    	//High speed Osc (> 4mhz for PCM/PCH) (>10mhz for PCD) 
+.................... #FUSES NOPUT                 	//No Power Up Timer 
+.................... #FUSES NOPROTECT             	//Code not protected from reading 
+.................... #FUSES NOBROWNOUT            	//No brownout reset 
+.................... #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOCPD                 	//No EE protection 
+.................... #FUSES NOWRT                 	//Program memory not write protected 
+.................... #FUSES NODEBUG               	//No Debug mode for ICD 
+.................... #FUSES RESERVED              	//Used to set the reserved FUSE bits 
+....................  
+.................... #use delay(clock=20000000) 
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+....................  
+....................  
+....................  
+.................... void main() 
+.................... { 
+*
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  MOVLW  81
+0009:  BSF    03.5
+000A:  MOVWF  19
+000B:  MOVLW  A6
+000C:  MOVWF  18
+000D:  MOVLW  90
+000E:  BCF    03.5
+000F:  MOVWF  18
+0010:  BSF    03.5
+0011:  BSF    1F.0
+0012:  BSF    1F.1
+0013:  BSF    1F.2
+0014:  BCF    1F.3
+....................  
+....................    setup_adc_ports(NO_ANALOGS); 
+*
+0018:  BSF    03.5
+0019:  BSF    1F.0
+001A:  BSF    1F.1
+001B:  BSF    1F.2
+001C:  BCF    1F.3
+....................    setup_adc(ADC_CLOCK_DIV_2); 
+001D:  BCF    03.5
+001E:  BCF    1F.6
+001F:  BCF    1F.7
+0020:  BSF    03.5
+0021:  BCF    1F.7
+0022:  BCF    03.5
+0023:  BSF    1F.0
+....................    setup_psp(PSP_DISABLED); 
+0024:  BSF    03.5
+0025:  BCF    09.4
+....................    setup_spi(SPI_SS_DISABLED); 
+0026:  BCF    03.5
+0027:  BCF    14.5
+0028:  BCF    20.5
+0029:  MOVF   20,W
+002A:  BSF    03.5
+002B:  MOVWF  07
+002C:  BCF    03.5
+002D:  BSF    20.4
+002E:  MOVF   20,W
+002F:  BSF    03.5
+0030:  MOVWF  07
+0031:  BCF    03.5
+0032:  BCF    20.3
+0033:  MOVF   20,W
+0034:  BSF    03.5
+0035:  MOVWF  07
+0036:  MOVLW  01
+0037:  BCF    03.5
+0038:  MOVWF  14
+0039:  MOVLW  00
+003A:  BSF    03.5
+003B:  MOVWF  14
+....................    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1); 
+003C:  MOVF   01,W
+003D:  ANDLW  C7
+003E:  IORLW  08
+003F:  MOVWF  01
+....................    setup_timer_1(T1_DISABLED); 
+0040:  BCF    03.5
+0041:  CLRF   10
+....................    setup_timer_2(T2_DISABLED,0,1); 
+0042:  MOVLW  00
+0043:  MOVWF  78
+0044:  MOVWF  12
+0045:  MOVLW  00
+0046:  BSF    03.5
+0047:  MOVWF  12
+....................  
+....................    // TODO: USER CODE!! 
+....................  
+.................... } 
+0048:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F3A   HS NOWDT NOPUT NOPROTECT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG
